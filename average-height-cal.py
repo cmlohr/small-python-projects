@@ -1,8 +1,8 @@
 print("#######################################")
 print("## AVERAGE STUDENT HEIGHT CALCULATOR ##")
 print("#######################################")
-
-student_heights = input("Input a list of student heights ").split()
+#test heights: 123 149 175 183 166 179 125
+student_heights = input("   Input a list of student heights:\n>> ").split()
 for n in range(0, len(student_heights)):
   student_heights[n] = int(student_heights[n])
 #print(student_heights)
@@ -20,4 +20,4 @@ def list_height(student_heights):
 length = list_height(student_heights)
 #print(length)
 ave = round(total / length)
-print(ave)
+print(f"Average student height is: {ave}")
