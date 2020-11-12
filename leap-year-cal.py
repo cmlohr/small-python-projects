@@ -1,16 +1,34 @@
 print("################################")
 print("####  LEAP YEAR CALCULATOR  ####")
 print("################################")
-year = int(input("Which year do you want to check? \n"))
 
-
-if year % 4 == 0:
-  if year % 100 == 0:
-    if year % 400 == 0:
-      print("Leap year.")
+def is_leap(year):
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                print("Leap")
+                return True
+            else:
+                print("Not Leap")
+                return False
+        else:
+            print("Leap")
+            return True
     else:
-      print("Not leap year.")
-  else:
-    print("Leap year.")
-else:
-  print("Not leap year.")
+        print("Not Leap")
+        return False
+
+def days_in_month(year, month):
+    if month > 12 or month < 1:
+        return "Invalid Input"
+    month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]  
+    if is_leap(year) == True and month == 2:
+        return 29
+    return month_days[month - 1]
+
+year = int(input("Which year do you want to check?\n> "))
+print("------------------------------------------")
+month = int(input("Type 1 - 12 to check number of days in a month:\n> "))
+days = days_in_month(year, month)
+print(days)
+
